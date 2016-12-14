@@ -1,27 +1,35 @@
-filesBrodatz = dir('D:\Kuliah\Semester 7\4. Visi Komputer\Tugas\FP\Brodatz\Training\*.jpg');
+files_Brodatz = dir('D:\Kuliah\Semester 7\4. Visi Komputer\Tugas\FP\Brodatz\Training\*.jpg');
 
-for i = 1 : length(filesBrodatz)
-    filenameBrodatz = strcat('D:\Kuliah\Semester 7\4. Visi Komputer\Tugas\FP\Brodatz\Training\', filesBrodatz(i).name);
+for i = 1 : length(files_Brodatz)
+    filename_Brodatz = strcat('D:\Kuliah\Semester 7\4. Visi Komputer\Tugas\FP\Brodatz\Training\', files_Brodatz(i).name);
     
-    trainingBrodatz = imread(filenameBrodatz);
+    training_Brodatz = imread(filename_Brodatz);
     
-    inputImgGrayBrodatz = rgb2gray(trainingBrodatz);
+    input_ImgGray_Brodatz = rgb2gray(training_Brodatz);
     
-    glcmsBrodatz = graycomatrix(inputImgGrayBrodatz,'Offset',[0 1; -1 1;-1 0;-1 -1]);
+    glcms_Brodatz_d1 = graycomatrix(input_ImgGray_Brodatz,'Offset',[0 1; -1 1;-1 0;-1 -1]);
     
-    GLCM(glcmsBrodatz,0);
+    glcms_Brodatz_d2 = graycomatrix(input_ImgGray_Brodatz,'Offset',[0 2; -2 2;-2 0;-2 -2]);
+    
+    fitur_glcms_Brodatz_d1 = GLCM(glcms_Brodatz_d1,0);
+    
+    fitur_glcms_Brodatz_d2 = GLCM(glcms_Brodatz_d2,0);
 end
 
-filesVisTex = dir('D:\Kuliah\Semester 7\4. Visi Komputer\Tugas\FP\VisTex\Training\*.ppm');
+files_VisTex = dir('D:\Kuliah\Semester 7\4. Visi Komputer\Tugas\FP\VisTex\Training\*.ppm');
 
-for j = 1 : length(filesVisTex)
-    filenameVisTex = strcat('D:\Kuliah\Semester 7\4. Visi Komputer\Tugas\FP\VisTex\Training\', filesVisTex(i).name);
+for j = 1 : length(files_VisTex)
+    filename_VisTex = strcat('D:\Kuliah\Semester 7\4. Visi Komputer\Tugas\FP\VisTex\Training\', files_VisTex(i).name);
     
-    trainingVisTex = imread(filenameVisTex);
+    training_VisTex = imread(filename_VisTex);
     
-    inputImgGrayVisTex = rgb2gray(trainingVisTex);
+    input_ImgGray_VisTex = rgb2gray(training_VisTex);
     
-    glcmsVisTex = graycomatrix(inputImgGrayVisTex,'Offset',[0 1; -1 1;-1 0;-1 -1]);
+    glcms_VisTex_d1 = graycomatrix(input_ImgGray_VisTex,'Offset',[0 1; -1 1;-1 0;-1 -1]);
     
-    GLCM(glcmsVisTex,0);
+    glcms_VisTex_d2 = graycomatrix(input_ImgGray_VisTex,'Offset',[0 2; -2 2;-2 0;-2 -2]);
+    
+    fitur_glcms_VisTex_d1 = GLCM(glcms_VisTex_d1,0);
+    
+    fitur_glcms_VisTex_d2 = GLCM(glcms_VisTex_d2,0);
 end
