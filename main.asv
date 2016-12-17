@@ -1,4 +1,4 @@
-dirc ='Testing\rotated\dtcwt\';
+dirc ='Testing\\dtcwt\';
 files_Brodatz = dir(strcat('Brodatz\',dirc, '*.png'));
 
 fitur_training_Brodatz = [];
@@ -71,4 +71,4 @@ for i = 1 : length(files_VisTex)
     fitur_training_VisTex = [fitur_training_VisTex; fitur_VisTex];
 end
 
-save ('fitur_glcm_rotated.mat', 'fitur_training_Brodatz', 'fitur_training_VisTex');
+save ('fitur_glcm_original.mat', 'fitur_training_Brodatz', 'fitur_training_VisTex');
