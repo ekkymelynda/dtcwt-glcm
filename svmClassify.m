@@ -1,4 +1,4 @@
-function trainResult = svm(data)
+function Result = svmClassify(trainData, data)
 [baris, kolom] = size(data);
 fitur = zeros(kolom, baris);
 label = zeros(1, baris);
@@ -11,7 +11,5 @@ end
 for i=1:baris
     label(i)=data(i);
 end
-trainResult=multisvm(fitur,label);
+Result=classifyMultiSVM(trainData, fitur);
 end
-
-function 
