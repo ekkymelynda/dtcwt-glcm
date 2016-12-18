@@ -1,17 +1,25 @@
-function trainResult = svm(data)
-[baris, kolom] = size(data);
-fitur = zeros(kolom, baris);
+function trainResult = svm(dataTraining, dataTest)
+[baris, kolom] = size(dataTraining);
+fiturTraining = zeros(baris, kolom);
 label = zeros(1, baris);
+disp(size(dataTraining));
 for i=1:baris
     for j=2:kolom
-       fitur(i,j) = data(i,j);
+       fiturTraining(i,j) = dataTraining(i,j);
     end
 end
-
 for i=1:baris
-    label(i)=data(i);
+    label(i)=dataTraining(i);
 end
-trainResult=multisvm(fitur,label);
+disp(size(fiturTraining));
+[baris2, kolom2] = size(dataTest);
+disp(size(dataTest));
+fiturTest = zeros(baris2);
+for i=1:baris2
+    for j=2:kolom2
+        fiturTest(i,j) = dataTest(i,j);
+    end
 end
-
-function 
+disp(size(fiturTest));
+trainResult=multisvm(fiturTraining,label,fiturTest);
+end
