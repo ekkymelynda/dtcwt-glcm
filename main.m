@@ -1,4 +1,4 @@
-dirc ='Testing\rotated\dtcwt\';
+dirc ='Testing\scaled\dtcwt\';
 files_Brodatz = dir(strcat('Brodatz\',dirc, '*.png'));
 
 fitur_training_Brodatz = [];
@@ -65,10 +65,32 @@ for i = 1 : length(files_VisTex)
     
     kelas_VisTex = strsplit(files_VisTex(i).name, '.');
     
-    fitur_VisTex = [kelas_VisTex(1), num2cell(VisTex_d1_entro), num2cell(VisTex_d1_energ), num2cell(VisTex_d1_homom), num2cell(VisTex_d1_contr), num2cell(VisTex_d2_entro), num2cell(VisTex_d2_energ), num2cell(VisTex_d2_homom), num2cell(VisTex_d2_contr)];
+    switch(char(kelas_VisTex(1)))
+       case 'Fabric' 
+           kelas = 1; 
+       case 'Flowers'
+           kelas = 2;
+       case 'Food' 
+           kelas = 3;
+       case 'Grass'
+           kelas = 4;
+       case 'Leaves'
+           kelas = 5;
+       case 'Metal' 
+           kelas = 6;
+       case 'Sand' 
+           kelas = 7;
+       case 'Stone' 
+           kelas = 8;
+       case 'Water'
+           kelas = 9;
+       case 'Wood' 
+           kelas = 10; 
+    end
+    fitur_VisTex = [kelas, VisTex_d1_entro, VisTex_d1_energ, VisTex_d1_homom, VisTex_d1_contr, VisTex_d2_entro, VisTex_d2_energ, VisTex_d2_homom, VisTex_d2_contr];
     %fitur_VisTex = [VisTex_d1_entro, VisTex_d1_energ];
     
     fitur_training_VisTex = [fitur_training_VisTex; fitur_VisTex];
 end
 
-save ('fitur_glcm_rotated.mat', 'fitur_training_Brodatz', 'fitur_training_VisTex');
+save ('fitur_glcm_scaled.mat', 'fitur_training_Brodatz', 'fitur_training_VisTex');
