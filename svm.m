@@ -21,5 +21,5 @@ for i=1:baris2
     end
 end
 disp(size(fiturTest));
-trainResult=multisvm(fiturTraining,label,fiturTest);
+trainResult=multisvm(normc(fiturTraining),label,normc(fiturTest));
 end

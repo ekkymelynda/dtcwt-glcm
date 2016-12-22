@@ -5,7 +5,8 @@ nfiles = length(imagefiles);
 for idx=1:nfiles
     name = strcat(dirc,imagefiles(idx).name);
     curr = imread(name);
-    inpgray = double(rgb2gray(curr));
+    %inpgray = double(rgb2gray(curr));
+    inpgray = double(curr);
     %imagesc(inpgray);
     
     wt = dddtree2('cplxdt',inpgray,1,'FSfarras','qshift10');
